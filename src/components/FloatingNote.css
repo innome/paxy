@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Minecraftia';
+    src: url('/fonts/Minecraftia-Regular.woff2') format('woff2'),
+         url('/fonts/Minecraftia-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .floating-btn {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background: #17BEBB;
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    border: none;
+    z-index: 1001;
+    cursor: pointer;
+  }
+  
+  /* Modal overlay */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    font-family: 'Minecraftia', sans-serif;
+    position: relative;
+  }
+  
+  /* Cerrar modal */
+  .modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el texto */
+  .modal-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .modal-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .modal-signature {
+    font-size: 1rem;
+    text-align: right;
+    font-style: italic;
+  }
+  
+  /* Ajustes para móviles */
+  @media (max-width: 600px) {
+    .modal-content {
+      padding: 1rem 1.5rem;
+    }
+    .modal-title {
+      font-size: 1.5rem;
+    }
+    .modal-description,
+    .modal-signature {
+      font-size: 0.9rem;
+    }
+  }
+  

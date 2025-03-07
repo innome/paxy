@@ -1,5 +1,6 @@
 // src/components/FloatingNote.jsx
 import React, { useState } from 'react';
+import './FloatingNote.css';
 
 function FloatingNote() {
   const [isOpen, setIsOpen] = useState(false);
