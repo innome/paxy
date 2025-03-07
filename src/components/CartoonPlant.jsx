@@ -6,16 +6,30 @@ import './CartoonPlant.css';
 
 const CartoonPlant = () => {
 
-    // Configuramos la fecha de nacimiento: 23 de marzo de 2025 (mes 2 en JS)
-    const birthDate = new Date(2025, 2, 23);
-    const today = new Date();
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDiff = today.getMonth() - birthDate.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
+  // Fecha de nacimiento: 23 de marzo de 2025 (mes 2 en JS)
+  const birthDate = new Date(2025, 2, 23);
+  const today = new Date();
+
+  let displayMessage = "";
+
+  if (today < birthDate) {
+    // Aún no ha ocurrido el nacimiento, mostramos cuántos días faltan
+    const diffTime = birthDate.getTime() - today.getTime();
+    const daysUntilBirth = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    displayMessage = `Faltan ${daysUntilBirth} día${daysUntilBirth !== 1 ? "s" : ""} para tu nacimiento`;
+  } else {
+    // Ya ha ocurrido el nacimiento: calculamos años y días desde el último cumpleaños
+    let years = today.getFullYear() - birthDate.getFullYear();
+    // Calcula el cumpleaños de este año
+    let lastBirthday = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+    if (today < lastBirthday) {
+      years--;
+      lastBirthday = new Date(today.getFullYear() - 1, birthDate.getMonth(), birthDate.getDate());
     }
-    // Si aún no ha llegado la fecha de nacimiento, mostramos 0
-    if (age < 0) age = 0;
+    const diffTime = today.getTime() - lastBirthday.getTime();
+    const daysSinceBirthday = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    displayMessage = `Edad: ${years} año${years !== 1 ? "s" : ""} y ${daysSinceBirthday} día${daysSinceBirthday !== 1 ? "s" : ""}`;
+  }
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -63,7 +77,7 @@ const CartoonPlant = () => {
       </div>
       
       <div className="legend">Paxy</div>
-      <div className="age">Edad: {age}</div>
+      <div className="age">{displayMessage}</div>
     </div>
   );
 };
