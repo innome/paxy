@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fondo */
+html, body {
+  /* background-color: #2a0033; */
+  /* background-color: #95506e; */
+  /* background-color: #c08aa7; */
+  /* background-color: #a06699; */
+  /* backgroun-color: #ffebf0; */
+  background: linear-gradient(to bottom right, #E9D5FF, #FFD1DC);
+}
+
 
 @font-face {
   font-family: 'Minecraftia';
@@ -12,7 +22,7 @@
 
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Minecraftia', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -56,13 +66,6 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {

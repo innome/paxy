@@ -1,0 +1,155 @@
+$black: #000;
+$white: #fff;
+
+.bubble {
+    position: relative;
+    left: -15%;
+    display: inline-block;
+    margin: 20px 0;
+    text-align: center;
+    line-height: 1.3em;
+    background-color: $white;
+    color: $black;
+    padding: 12px;
+    box-shadow:
+        0 -4px $white,
+        0 -8px $black,
+        4px 0 $white,
+        4px -4px $black,
+        8px 0 $black,
+        0 4px $white,
+        0 8px $black,
+        -4px 0 $white,
+        -4px 4px $black,
+        -8px 0 $black,
+        -4px -4px $black,
+        4px 4px $black;
+    box-sizing: border-box;
+    width: 350px;
+    max-width: 90%;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 100%;  // Lo coloca debajo de la burbuja
+        right: 8px; // Lo alinea a la derecha
+        height: 4px;
+        width: 4px;
+        box-shadow:
+            0 4px $black,
+            0 8px $black,
+            0 12px $black,
+            0 16px $black,
+            -4px 12px $black,
+            -8px 8px $black,
+            -12px 4px $black,
+            -4px 8px $white,
+            -8px 4px $white,
+            -4px 4px $white,
+            -4px 0 $white,
+            -8px 0 $white,
+            -12px 0 $white;
+    }
+
+    p {
+
+        &:first-child {
+            font-size: 30px;
+            padding: 6px 0;
+            overflow: hidden;
+            border-right: .15em solid #05c6cf;
+            white-space: nowrap;
+            margin: 4px auto;
+            animation:
+                typing 3s steps(30, end) forwards,
+                blink-caret .5s step-end 2 forwards,
+        }
+
+        &:last-child {
+            font-size: 16px;
+            overflow: hidden;
+            border-right: .15em solid #05c6cf;
+            white-space: nowrap;
+            margin: 0 auto;
+            opacity: 0;
+            animation:
+                fade-in 0.1s linear forwards 3s,
+                typing 3s steps(30, end),
+                blink-caret .5s step-end infinite;
+            animation-delay: 1.5s;
+        }
+    }
+
+    @media (max-width: 768px) {
+        top: -14rem;
+        left: 0;
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 4px;
+            width: 4px;
+            box-shadow:
+                0 4px $black,
+                0 8px $black,
+                0 12px $black,
+                0 16px $black,
+                4px 12px $black,
+                8px 8px $black,
+                12px 4px $black,
+                4px 8px $white,
+                8px 4px $white,
+                4px 4px $white,
+                4px 0 $white,
+                8px 0 $white,
+                12px 0 $white;
+        }
+
+        p {
+            padding: 0;
+
+            &:first-child {
+                font-size: 25px;
+            }
+
+            &:last-child {
+                font-size: 16px;
+            }
+        }
+    }
+
+    @media (max-width: 375px) {
+        p {
+
+            &:first-child {
+                font-size: 20px;
+            }
+
+            &:last-child {
+                font-size: 13px;
+            }
+        }
+    }
+
+    /* The typing effect */
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: #05c6cf }
+    }
+
+    @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+}

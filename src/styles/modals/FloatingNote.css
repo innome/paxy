@@ -29,7 +29,7 @@
     justify-content: center;
     z-index: 1000;
   }
-  
+
   /* Modal content */
   .modal-content {
     background: white;
@@ -38,7 +38,6 @@
     max-width: 90%;
     max-height: 90%;
     overflow-y: auto;
-    font-family: 'Minecraftia', sans-serif;
     position: relative;
   }
   
