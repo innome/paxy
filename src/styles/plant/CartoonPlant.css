@@ -1,8 +1,3 @@
-/* Fondo */
-html, body {
-  background: #4a13;
-}
-
 /* Contenedor principal */
 .cartoon {
   position: absolute;
@@ -17,6 +12,7 @@ html, body {
   background-size: 10% 100%, 100% 10%;
   */
 }
+
 
 /* Todos los elementos internos */
 .cartoon div {
@@ -66,7 +62,9 @@ html, body {
   left: 50%;
   top: 5%;
   transform: translate(-93%, 1%);
-  box-shadow: 2vmin 0 0 -1vmin, 3.5vmin 0 0 -1vmin green, 4.5vmin 0 0 -1vmin;
+  box-shadow: 2vmin 0 0 -1vmin black,
+              3.5vmin 0 0 -1vmin green,
+              4.5vmin 0 0 -1vmin black;
   clip-path: polygon(0% 5%, 75% 5%, 75% 0%, 150% 0%, 150% 80%, 95% 85.5%, 0% 70%);
 }
 .plant::after {
@@ -75,7 +73,7 @@ html, body {
   border-radius: 50%;
   top: 78.5%;
   left: 89.5%;
-  box-shadow: -0.6vmin 1vmin 0 -0.25vmin;
+  box-shadow: -0.6vmin 1vmin 0 -0.25vmin black;
 }
 
 /* Hojas */
@@ -158,9 +156,22 @@ html, body {
   top: 62%;
   left: 43%;
   box-shadow: inset -0.75vmin -0.75vmin 0 1.125vmin black;
+  border-radius: 99px;
 }
 .eye + .eye {
   left: 53%;
+}
+
+.eye.happy {
+  border-radius: 50% 50% 0 0; /* Forma más curva hacia arriba */
+  height: 1vmin;
+}
+
+/* Agregar la segunda "expresión feliz" para el otro ojo */
+.eye.happy + .eye {
+  left: 53%;
+  border-radius: 50% 50% 0 0;  /* Forma feliz */
+  height: 1vmin;
 }
 
 .mouth {
@@ -172,6 +183,7 @@ html, body {
   transform: translate(-50%, 0) rotate(45deg);
   border-left-color: transparent;
   border-top-color: transparent;
+  animation: hablar 2s steps(1) 2;
 }
 
 
@@ -180,7 +192,6 @@ html, body {
   top: 0;          /* O top: 1vmin; para un pequeño margen */
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Minecraftia', sans-serif;
   font-size: 2rem;
   color: white;
 }
@@ -190,8 +201,52 @@ html, body {
   top: 3rem;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Minecraftia', sans-serif;
   font-size: 1rem;
   font-style: italic;
   color: white;
+}
+
+/* .titleMessage {
+  background: linear-gradient(90deg, #c71585, #ff1493);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
+
+.bocadillo {
+  position: relative;
+  background: white;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  font-family: sans-serif;
+}
+
+/* Punta del bocadillo */
+.bocadillo::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* Ajusta la posición vertical */
+  left: 20px; /* Ajusta la posición horizontal */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+}
+
+@keyframes hablar {
+  0% {
+    border-width: 1.75vmin;
+  }
+  50% {
+    border-width: 0.75vmin;
+  }
+  75% {
+    border-width: 1.75vmin;
+  }
+  100% {
+    border-width: 0.75vmin;
+  }
 }

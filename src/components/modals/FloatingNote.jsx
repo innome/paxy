@@ -1,5 +1,6 @@
 // src/components/FloatingNote.jsx
 import React, { useState } from 'react';
+import Crepper from '@assets/crepper.png';
 
 function FloatingNote() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,24 +12,33 @@ function FloatingNote() {
   return (
     <>
       {/* Botón flotante */}
-      <button 
+      <button
         onClick={toggleNote}
-        className="fixed bottom-4 right-4 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-400 focus:outline-none"
+        className="w-[8rem] fixed p-3 font-bold rounded-[8px] bg-[#05c6cf] border-[#05c6cf] hover:bg-white hover:text-[#05c6cf] bottom-4 right-4 minecraft-button focus:outline-none animate-pulseScale flex justify-around items-center"
       >
+        <img className='w-[20px]' src={Crepper} alt="crepper face" />
         Abrir
       </button>
 
       {/* Modal */}
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-gray-100 text-black p-6 rounded-lg shadow-lg max-w-sm w-full relative">
-            <button 
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="relative w-full max-w-sm p-6 text-black bg-gray-100 rounded-lg shadow-lg">
+            {/* <button
               onClick={toggleNote}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
+              className="absolute text-gray-500 top-2 right-2 hover:text-gray-800"
             >
               X
-            </button>
-            <h2 className="text-2xl mb-4" style={{ fontFamily: 'Minecraftia, sans-serif' }}>
+            </button> */}
+            <div className='flex items-center justify-end w-full'>
+              <button
+                onClick={toggleNote}
+                className="absolute top-2 right-2 bg-purple-600 text-white py-2 px-3 text-sm transition delay-50 duration-150 ease-in-out hover:bg-[#05c6cf] hover:scale-105 outline-none"
+              >
+                <img className='w-[15px]' src={Crepper} alt="crepper face" />
+              </button>
+            </div>
+            <h2 className="mb-4 text-2xl" style={{ fontFamily: 'Minecraftia, sans-serif' }}>
               ¡Feliz cumpleaños Pol!
             </h2>
             <p className="mb-4" style={{ fontFamily: 'Minecraftia, sans-serif' }}>
@@ -37,8 +47,6 @@ function FloatingNote() {
               Pues el de verdad lo tienes ahi, cerca tuyo. Su nombre significa Paz en latin, pues es lo que mas deseo para ti.<br/><br/>
               Paxy te acompañará hasta donde tu lo cuides, es timido, no le gusta el sol, pero si el moradito pastel como a ti y comer helado a las 11 de la noche. <br/><br/>
               Te quiero mucho y espero que este año sea uno de los mejores de tu vida.
-              
-             
 
             </p>
             <p className="text-right" style={{ fontFamily: 'Minecraftia, sans-serif' }}>
