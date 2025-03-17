@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import "@styles/plant/CartoonPlant.css";
-import BubbleText from "../modals/bubbleText";
+import BubbleText from "@components/modals/BubbleText";
 
 // Función para calcular la edad y el mensaje
 const calculateAgeMessage = () => {
